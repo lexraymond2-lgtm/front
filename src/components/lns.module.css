@@ -1,0 +1,378 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../assets/ovenbg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.innercontainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  backdrop-filter: blur(3px);
+}
+
+@media (max-width: 979px) {
+  .container {
+    height: 100%;
+  }
+}
+
+.form {
+  width: 60%;
+  height: 700px;
+  background-color: rgba(255, 255, 255, 0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 10px;
+  position: relative;
+}
+
+.machine{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  
+}
+
+
+.containerr {
+  width: 100%;
+  height: 100%;
+}
+
+.terminal_toolbar {
+  display: flex;
+  height: 30px;
+  align-items: center;
+  padding: 0 8px;
+  box-sizing: border-box;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background: linear-gradient(#ffffff 0%, #ffffff 100%);
+}
+
+.butt {
+  display: flex;
+  align-items: center;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin-right: 5px;
+  font-size: 8px;
+  height: 15px;
+  width: 15px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 100%;
+  background: linear-gradient(#7d7871 0%, #595953 100%);
+  text-shadow: 0px 1px 0px rgba(255,255,255,0.2);
+  box-shadow: 0px 0px 1px 0px #41403A, 0px 1px 1px 0px #474642;
+}
+
+.btncolor {
+  background: #ee1a1a;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.butt--exit {
+  background: linear-gradient(#f37458 0%, #de4c12 100%);
+}
+
+.user {
+  color: #000000;
+  margin-left: 6px;
+  font-size: 19px;
+  line-height: 15px;
+}
+
+.terminal_body {
+  background: rgb(255, 255, 255);
+  height: calc(100% - 30px);
+  padding-top: 2px;
+  margin-top: -1px;
+  font-size: 19px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.terminal_promt {
+  display: flex;
+}
+
+.terminal_promt span {
+  margin-left: 4px;
+}
+
+.terminal_user {
+  color: rgb(219, 20, 153);
+}
+
+.terminal_location {
+  color: rgb(219, 20, 153);
+}
+
+.terminal_bling {
+  color: rgb(219, 20, 153);
+}
+
+.terminal_cursor {
+  display: block;
+  height: 14px;
+  width: 5px;
+  margin-left: 10px;
+  animation: curbl 1200ms linear infinite;
+}
+
+@keyframes curbl {
+  
+  0% {
+    background: rgb(27, 27, 27);
+  }
+
+  49% {
+    background: rgb(0, 0, 0);
+  }
+
+  60% {
+    background: transparent;
+  }
+
+  99% {
+    background: transparent;
+  }
+
+  100% {
+    background: #ffffff;
+  }
+} 
+
+@media (max-width: 979px) {
+  .form {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    padding-top: 100px;
+    border-radius: 0px;
+  }
+}
+
+.toplog {
+  width: 100%;
+  height: 100px;
+  background-color: rgba(255, 255, 255, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 60px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 10px 10px 0 0;
+  backdrop-filter: blur(2px);
+}
+
+@media (max-width: 979px) {
+  .toplog {
+    border-radius: 0 0;
+  }
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #4e4e4e;
+  margin-bottom: 1rem;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  text-decoration: none;
+  transition: all 0.5s ease;
+}
+
+.custommessage {
+  width: 45%;
+  margin: 30px 0 30px 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+}
+
+@media (max-width: 979px) {
+  .custommessage {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+@media (max-width: 979px) {
+  .label {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.input {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.input:focus {
+  outline: none;
+  border-color: cyan;
+}
+
+.password {
+  border: 1px solid rgb(255, 2, 2);
+}
+
+.button,
+.button::after {
+  width: 80%;
+  height: 50px;
+  padding: 16px 20px;
+  font-size: 18px;
+  background: linear-gradient(45deg, transparent 5%, #3d3d3d 5%);
+  border: 0;
+  color: #fff;
+  letter-spacing: 3px;
+  line-height: 1;
+  box-shadow: 6px 0px 0px #3d3d3d;
+  outline: transparent;
+  position: relative;
+  cursor: pointer;
+}
+
+.button::after {
+ --slice-0: inset(50% 50% 50% 50%);
+ --slice-1: inset(80% -6px 0 0);
+ --slice-2: inset(50% -6px 30% 0);
+ --slice-3: inset(10% -6px 85% 0);
+ --slice-4: inset(40% -6px 43% 0);
+ --slice-5: inset(80% -6px 5% 0);
+ content: "Create New Account";
+ display: block;
+ position: absolute;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ background: linear-gradient(45deg, transparent 3%, #525252 3%, #000000 5%, #7c7c7c 5%);
+ text-shadow: -3px -3px 0px #ffffff, 3px 3px 0px #3d3d3d;
+ clip-path: var(--slice-0);
+}
+
+.button:hover::after {
+ animation: 1s glitch;
+ animation-timing-function: steps(2, end);
+}
+
+@keyframes glitch {
+ 0% {
+  clip-path: var(--slice-1);
+  transform: translate(-20px, -10px);
+ }
+
+ 10% {
+  clip-path: var(--slice-3);
+  transform: translate(10px, 10px);
+ }
+
+ 20% {
+  clip-path: var(--slice-1);
+  transform: translate(-10px, 10px);
+ }
+
+ 30% {
+  clip-path: var(--slice-3);
+  transform: translate(0px, 5px);
+ }
+
+ 40% {
+  clip-path: var(--slice-2);
+  transform: translate(-5px, 0px);
+ }
+
+ 50% {
+  clip-path: var(--slice-3);
+  transform: translate(5px, 0px);
+ }
+
+ 60% {
+  clip-path: var(--slice-4);
+  transform: translate(5px, 10px);
+ }
+
+ 70% {
+  clip-path: var(--slice-2);
+  transform: translate(-10px, 10px);
+ }
+
+ 80% {
+  clip-path: var(--slice-5);
+  transform: translate(20px, -10px);
+ }
+
+ 90% {
+  clip-path: var(--slice-1);
+  transform: translate(-10px, 0px);
+ }
+
+ 100% {
+  clip-path: var(--slice-1);
+  transform: translate(0);
+ }
+}
+
+
+.is_disabled {
+  cursor: not-allowed;
+}
+
+.pe {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  display: flex; /* Initially hidden */
+}

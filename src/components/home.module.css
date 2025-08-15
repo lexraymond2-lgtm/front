@@ -1,0 +1,688 @@
+/* Filter Controls */
+.filterControls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.filterContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.filterIcon {
+  color: #4a5568;
+  font-size: 1rem;
+}
+
+.filterSelect {
+  padding: 0.5rem 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  background: white;
+  color: #2d3748;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  min-width: 150px;
+}
+
+.filterSelect:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+}
+
+.activeFilter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.clearFilterBtn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.clearFilterBtn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.postCount {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: #f7fafc;
+  color: #4a5568;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid #e2e8f0;
+}
+
+/* Responsive filter controls */
+@media (max-width: 768px) {
+  .filterControls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+  
+  .filterSelect {
+    min-width: auto;
+    width: 100%;
+  }
+  
+  .activeFilter {
+    justify-content: space-between;
+  }
+  
+  .postCount {
+    text-align: center;
+  }
+}
+
+.homefp{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.homemaincointainer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+}
+
+
+
+.maincontent{
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #000000 0%, #333333 100%);
+}
+
+.content1{
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.content2{
+    width: 100%;
+    height: 100vh;
+    background-color: #000000;
+    border: 3px solid #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cnt2top,.cnt2botom{
+    width: 100%;
+    height: 17%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.cnt2top{
+    gap: 20px;
+    background-color: transparent;
+}
+
+.cnt2botom{
+    justify-content: space-between;
+    padding: 0 20px;
+    background-color: transparent;
+}
+
+.reactions{
+    color: #ffffff;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.reactions i{
+    margin-right: 5px;
+}
+
+.imagediv{
+    width: 80px;
+    height: 80px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.userProfileImage{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50px;
+}
+
+.userIcon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: #666;
+    font-size: 2rem;
+}
+
+.shortdesc{
+    flex:1;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    color: #ffffff;
+}
+
+.shortdesc h5{
+    font-size: 1rem;
+    font-weight: 900;
+}
+
+.cnt2mid{
+    width: 100%;
+    height: 66%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mediacontainer{
+    width: 90%;
+    height: 95%;
+    border: 1px solid gray;
+    border-radius: 30px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.postMedia{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 30px;
+}
+
+.loadingState{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #ffffff;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.loadingSpinner{
+    width: 40px;
+    height: 40px;
+    border: 4px solid #ffffff;
+    border-top: 4px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin{
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.emptyState{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #ffffff;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    text-align: center;
+    padding: 40px 20px;
+    background: transparent;
+    min-height: 60vh;
+}
+
+.emptyIcon{
+    font-size: 4rem;
+    margin-bottom: 30px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.emptyState h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.emptyState p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: #cccccc;
+    max-width: 400px;
+    line-height: 1.5;
+}
+
+.emptyActions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.createPostBtn {
+    background: linear-gradient(45deg, #ffffff, #cccccc);
+    color: #000000;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+.createPostBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+    background: linear-gradient(45deg, #ffffff, #ffffff);
+}
+
+.clearSearchBtn {
+    background: linear-gradient(45deg, #666666, #999999);
+    color: #ffffff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 102, 102, 0.3);
+}
+
+.clearSearchBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 102, 102, 0.4);
+    background: linear-gradient(45deg, #777777, #aaaaaa);
+}
+
+.emptySubtext {
+    font-size: 0.9rem;
+    color: #999999;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+.postMeta{
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+    font-size: 0.8rem;
+    opacity: 0.8;
+    flex-wrap: wrap;
+}
+
+.postAuthor, .postCategory, .postDate{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Modal Styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  padding: 20px;
+}
+
+.modalContent {
+  background: #000000;
+  border-radius: 15px;
+  max-width: 100vw;
+  max-height: 100vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+.closeButton {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10001;
+  transition: all 0.3s ease;
+}
+
+.closeButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+/* Share Modal Styles */
+.shareModal {
+  background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+  border-radius: 20px;
+  padding: 0;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.shareModalHeader {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  padding: 25px 30px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.shareModalHeader h3 {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.shareModalContent {
+  padding: 30px;
+  background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+}
+
+.sharePostPreview {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.sharePostPreview h4 {
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  line-height: 1.4;
+}
+
+.sharePostPreview p {
+  color: #b0b0b0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0 0 15px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.shareMediaPreview {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.shareMediaPreview img,
+.shareMediaPreview video {
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.shareMediaPreview img:hover,
+.shareMediaPreview video:hover {
+  transform: scale(1.02);
+}
+
+.shareOptions {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.shareOption {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border: none;
+  border-radius: 12px;
+  padding: 18px 20px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.shareOption::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.shareOption:hover::before {
+  left: 100%;
+}
+
+.shareOption:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+  background: linear-gradient(135deg, #7c8ff0, #8a5bb8);
+}
+
+.shareOption:active {
+  transform: translateY(-1px);
+}
+
+.shareOption svg {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.shareOption span {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.shareMessage {
+  background: linear-gradient(135deg, #48bb78, #38a169);
+  color: white;
+  padding: 15px 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 15px rgba(72, 187, 120, 0.3);
+  animation: messageSlideIn 0.3s ease-out;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@keyframes messageSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Error message styling */
+.shareMessage.error {
+  background: linear-gradient(135deg, #f56565, #e53e3e);
+  box-shadow: 0 4px 15px rgba(245, 101, 101, 0.3);
+}
+
+/* Responsive design for share modal */
+@media (max-width: 768px) {
+  .shareModal {
+    margin: 20px;
+    max-width: calc(100vw - 40px);
+  }
+  
+  .shareModalHeader {
+    padding: 20px 25px 15px;
+  }
+  
+  .shareModalHeader h3 {
+    font-size: 1.3rem;
+  }
+  
+  .shareModalContent {
+    padding: 25px 20px;
+  }
+  
+  .shareOptions {
+    justify-content: center;
+  }
+  
+  .shareOption {
+    padding: 15px 18px;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .shareOption svg {
+    margin-bottom: 0;
+    font-size: 1.3rem;
+  }
+  
+  .sharePostPreview {
+    padding: 15px;
+  }
+  
+  .sharePostPreview h4 {
+    font-size: 1.1rem;
+  }
+  
+  .sharePostPreview p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .shareModal {
+    margin: 10px;
+    max-width: calc(100vw - 20px);
+  }
+  
+  .shareModalHeader {
+    padding: 15px 20px 10px;
+  }
+  
+  .shareModalContent {
+    padding: 20px 15px;
+  }
+  
+  .shareOption {
+    padding: 12px 15px;
+    font-size: 0.9rem;
+  }
+  
+  .shareOption svg {
+    font-size: 1.2rem;
+  }
+}

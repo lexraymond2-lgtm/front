@@ -1,0 +1,1155 @@
+.profileContainer {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #0f0f0f 100%);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.profileContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+  padding-top: 50px;
+}
+
+.profileCard {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 24px;
+  padding: 0;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  width: 100%;
+  height: 90%;
+  overflow: scroll;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+/* Custom scrollbar styling */
+.profileCard::-webkit-scrollbar {
+  width: 8px;
+}
+
+.profileCard::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  margin: 4px;
+}
+
+.profileCard::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ffffff 0%, #e0e0e0 100%);
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.profileCard::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #f0f0f0 0%, #d0d0d0 100%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.profileCard::-webkit-scrollbar-corner {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+/* Firefox scrollbar styling */
+.profileCard {
+  scrollbar-width: thin;
+  scrollbar-color: #ffffff rgba(255, 255, 255, 0.05);
+}
+
+.profileCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+}
+
+.profileCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 32px 64px -12px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(255, 255, 255, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.header {
+  position: relative;
+  background: linear-gradient(135deg, #000000 0%, #333333 100%);
+  padding: 3rem 2rem 4rem 2rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+}
+
+.avatarSection {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.4);
+  position: relative;
+  display: inline-block;
+  z-index: 2;
+  overflow: hidden;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.15);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.avatarSection:hover {
+  transform: scale(1.05);
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.25);
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.avatar:hover {
+  transform: scale(1.1);
+}
+
+.avatarOverlay {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.avatarOverlay:before {
+  content: "📸";
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+  pointer-events: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.avatarOverlay:hover {
+  transform: scale(1.15);
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.25);
+}
+
+.cameraIcon {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.headerActions {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 3;
+}
+
+.editButton {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.editButton:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.editActions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.saveButton {
+  background: linear-gradient(135deg, #ffffff, #e0e0e0);
+  color: #000000;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+  z-index: 9;
+}
+
+.saveButton:hover {
+  background: linear-gradient(135deg, #f0f0f0, #d0d0d0);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.4);
+}
+
+.saveButton:disabled {
+  background: linear-gradient(135deg, #666666, #444444);
+  color: #999999;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.saveButton:disabled:hover {
+  background: linear-gradient(135deg, #666666, #444444);
+  transform: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.cancelButton {
+  background: linear-gradient(135deg, #333333, #000000);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  z-index: 9;
+}
+
+.cancelButton:hover {
+  background: linear-gradient(135deg, #000000, #1a1a1a);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.cancelButton:disabled {
+  background: linear-gradient(135deg, #666666, #444444);
+  color: #999999;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.cancelButton:disabled:hover {
+  background: linear-gradient(135deg, #666666, #444444);
+  transform: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.userInfo {
+  padding: 3rem 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+}
+
+.field {
+  margin-bottom: 2rem;
+}
+
+.field:last-child {
+  margin-bottom: 0;
+}
+
+.fieldLabel {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.75rem;
+}
+
+.username {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(135deg, #ffffff, #e0e0e0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.email {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  font-weight: 500;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+.createdDate {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  font-weight: 500;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.input {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: white;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box;
+}
+
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.input:focus {
+  outline: none;
+  border-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.actions {
+  padding: 0 2rem 2rem 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.actionsb {
+  padding: 0 2rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.addP {
+  background: linear-gradient(135deg, #ffffff, #e0e0e0);
+  color: #000000;
+  border: none;
+  padding: 1.25rem 2rem;
+  border-radius: 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 180px;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.addP::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.addP:hover::before {
+  left: 100%;
+}
+
+.addP:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(255, 255, 255, 0.4);
+  background: linear-gradient(135deg, #f0f0f0, #d0d0d0);
+}
+
+.addPostButton {
+  background: linear-gradient(135deg, #000000, #333333);
+  color: white;
+  border: none;
+  padding: 1.25rem 2rem;
+  border-radius: 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 180px;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.addPostButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.addPostButton:hover::before {
+  left: 100%;
+}
+
+.addPostButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(135deg, #1a1a1a, #000000);
+}
+
+.addPostButton:active {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.buttonIcon {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.ss {
+  font-size: 1.2rem;
+}
+
+.customFileInputt {
+  cursor: pointer;
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.errorMessage {
+  background: linear-gradient(135deg, #ffffff, #f0f0f0);
+  border: 1px solid #e0e0e0;
+  color: #000000;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  margin: 1rem 2rem 0 2rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.errorMessage::before {
+  content: "⚠️";
+  font-size: 1.1rem;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .container {
+    padding: 1.5rem;
+  }
+
+  .profileCard {
+    max-width: 450px;
+    min-height: 550px;
+  }
+
+  .header {
+    padding: 2.5rem 1.5rem 3.5rem 1.5rem;
+  }
+
+  .userInfo {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .avatarSection {
+    width: 130px;
+    height: 130px;
+  }
+
+  .username {
+    font-size: 2rem;
+  }
+
+  .addPostButton, .addP {
+    min-width: 170px;
+    padding: 1.125rem 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .profileContainer {
+    min-height: 100vh;
+    height: auto;
+  }
+
+  .container {
+    padding: 1rem;
+    min-height: 100vh;
+    align-items: flex-start;
+    padding-top: 2rem;
+  }
+
+  .profileCard {
+    max-width: 100%;
+    min-height: auto;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .header {
+    padding: 2rem 1.5rem 3rem 1.5rem;
+  }
+
+  .userInfo {
+    padding: 2rem 1.5rem;
+  }
+
+  .actions {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+  }
+
+  .actionsb {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+  }
+
+  .avatarSection {
+    width: 120px;
+    height: 120px;
+  }
+
+  .username {
+    font-size: 1.875rem;
+  }
+
+  .email {
+    font-size: 1rem;
+    padding: 0.625rem 0.875rem;
+  }
+
+  .createdDate {
+    font-size: 0.875rem;
+    padding: 0.625rem 0.875rem;
+  }
+
+  .addPostButton, .addP {
+    min-width: 160px;
+    padding: 1rem 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .editActions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .saveButton, .cancelButton {
+    padding: 0.625rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .editButton {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.85rem;
+  }
+
+  .input {
+    padding: 0.875rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .fieldLabel {
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .field {
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 0.75rem;
+    padding-top: 1.5rem;
+  }
+
+  .profileCard {
+    border-radius: 20px;
+    box-shadow: 
+      0 20px 40px -12px rgba(0, 0, 0, 0.4),
+      0 0 0 1px rgba(255, 255, 255, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .profileCard:hover {
+    transform: translateY(-4px);
+  }
+
+  .header {
+    padding: 1.75rem 1.25rem 2.5rem 1.25rem;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .userInfo {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .actions {
+    padding: 0 1.25rem 1.25rem 1.25rem;
+  }
+
+  .actionsb {
+    padding: 0 1.25rem 1.25rem 1.25rem;
+  }
+
+  .avatarSection {
+    width: 110px;
+    height: 110px;
+    border-width: 3px;
+  }
+
+  .avatarOverlay {
+    width: 36px;
+    height: 36px;
+    bottom: 6px;
+    right: 6px;
+  }
+
+  .avatarOverlay:before {
+    font-size: 1rem;
+  }
+
+  .username {
+    font-size: 1.75rem;
+  }
+
+  .email {
+    font-size: 0.95rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 10px;
+  }
+
+  .createdDate {
+    font-size: 0.8rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 10px;
+  }
+
+  .addPostButton, .addP {
+    min-width: 150px;
+    padding: 0.875rem 1.25rem;
+    font-size: 0.9rem;
+    border-radius: 14px;
+  }
+
+  .buttonIcon {
+    font-size: 1.25rem;
+  }
+
+  .ss {
+    font-size: 1rem;
+  }
+
+  .editActions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .saveButton, .cancelButton {
+    padding: 0.5rem 0.875rem;
+    font-size: 0.8rem;
+    border-radius: 10px;
+  }
+
+  .editButton {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    border-radius: 10px;
+  }
+
+  .input {
+    padding: 0.75rem 0.875rem;
+    font-size: 0.9rem;
+    border-radius: 10px;
+  }
+
+  .fieldLabel {
+    font-size: 0.7rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .field {
+    margin-bottom: 1.25rem;
+  }
+
+  .errorMessage {
+    margin: 0.75rem 1.25rem 0 1.25rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
+    border-radius: 10px;
+  }
+
+  .errorMessage::before {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .profileContainer {
+    background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+  }
+
+  .container {
+    padding: 0.5rem;
+    padding-top: 1rem;
+  }
+
+  .profileCard {
+    border-radius: 16px;
+    box-shadow: 
+      0 15px 30px -8px rgba(0, 0, 0, 0.4),
+      0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+
+  .profileCard:hover {
+    transform: translateY(-2px);
+  }
+
+  .header {
+    padding: 1.5rem 1rem 2rem 1rem;
+    border-radius: 16px 16px 0 0;
+  }
+
+  .userInfo {
+    padding: 1.5rem 1rem;
+  }
+
+  .actions {
+    padding: 0 1rem 1rem 1rem;
+  }
+
+  .actionsb {
+    padding: 0 1rem 1rem 1rem;
+  }
+
+  .headerActions {
+    position: static;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .editActions {
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .avatarSection {
+    width: 100px;
+    height: 100px;
+    border-width: 3px;
+  }
+
+  .avatarOverlay {
+    width: 32px;
+    height: 32px;
+    bottom: 4px;
+    right: 4px;
+  }
+
+  .avatarOverlay:before {
+    font-size: 0.9rem;
+  }
+
+  .username {
+    font-size: 1.5rem;
+  }
+
+  .email {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+  }
+
+  .createdDate {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+  }
+
+  .addPostButton, .addP {
+    min-width: 140px;
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+    border-radius: 12px;
+  }
+
+  .buttonIcon {
+    font-size: 1.125rem;
+  }
+
+  .ss {
+    font-size: 0.9rem;
+  }
+
+  .saveButton, .cancelButton {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+    border-radius: 8px;
+  }
+
+  .editButton {
+    padding: 0.5rem 0.875rem;
+    font-size: 0.75rem;
+    border-radius: 8px;
+  }
+
+  .input {
+    padding: 0.625rem 0.75rem;
+    font-size: 0.85rem;
+    border-radius: 8px;
+  }
+
+  .fieldLabel {
+    font-size: 0.65rem;
+    margin-bottom: 0.375rem;
+  }
+
+  .field {
+    margin-bottom: 1rem;
+  }
+
+  .errorMessage {
+    margin: 0.5rem 1rem 0 1rem;
+    padding: 0.625rem 0.875rem;
+    font-size: 0.75rem;
+    border-radius: 8px;
+  }
+
+  .errorMessage::before {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    padding: 0.25rem;
+    padding-top: 0.75rem;
+  }
+
+  .profileCard {
+    border-radius: 12px;
+  }
+
+  .header {
+    padding: 1.25rem 0.75rem 1.75rem 0.75rem;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .userInfo {
+    padding: 1.25rem 0.75rem;
+  }
+
+  .actions {
+    padding: 0 0.75rem 0.75rem 0.75rem;
+  }
+
+  .actionsb {
+    padding: 0 0.75rem 0.75rem 0.75rem;
+  }
+
+  .avatarSection {
+    width: 90px;
+    height: 90px;
+    border-width: 2px;
+  }
+
+  .avatarOverlay {
+    width: 28px;
+    height: 28px;
+    bottom: 3px;
+    right: 3px;
+  }
+
+  .avatarOverlay:before {
+    font-size: 0.8rem;
+  }
+
+  .username {
+    font-size: 1.25rem;
+  }
+
+  .email {
+    font-size: 0.8rem;
+    padding: 0.375rem 0.625rem;
+    border-radius: 6px;
+  }
+
+  .createdDate {
+    font-size: 0.7rem;
+    padding: 0.375rem 0.625rem;
+    border-radius: 6px;
+  }
+
+  .addPostButton, .addP {
+    min-width: 120px;
+    padding: 0.625rem 0.875rem;
+    font-size: 0.8rem;
+    border-radius: 10px;
+  }
+
+  .buttonIcon {
+    font-size: 1rem;
+  }
+
+  .ss {
+    font-size: 0.8rem;
+  }
+
+  .saveButton, .cancelButton {
+    padding: 0.375rem 0.625rem;
+    font-size: 0.7rem;
+    border-radius: 6px;
+  }
+
+  .editButton {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.7rem;
+    border-radius: 6px;
+  }
+
+  .input {
+    padding: 0.5rem 0.625rem;
+    font-size: 0.8rem;
+    border-radius: 6px;
+  }
+
+  .fieldLabel {
+    font-size: 0.6rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .field {
+    margin-bottom: 0.875rem;
+  }
+
+  .errorMessage {
+    margin: 0.375rem 0.75rem 0 0.75rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.7rem;
+    border-radius: 6px;
+  }
+
+  .errorMessage::before {
+    font-size: 0.8rem;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (max-height: 600px) and (orientation: landscape) {
+  .profileContainer {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .container {
+    padding: 1rem;
+    min-height: 100vh;
+    align-items: flex-start;
+  }
+
+  .profileCard {
+    min-height: auto;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .header {
+    padding: 1.5rem 2rem 2rem 2rem;
+  }
+
+  .userInfo {
+    padding: 1.5rem 2rem;
+  }
+
+  .actionsb {
+    padding: 0 2rem 1.5rem 2rem;
+  }
+
+  .avatarSection {
+    width: 100px;
+    height: 100px;
+  }
+
+  .username {
+    font-size: 1.75rem;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .profileCard {
+    box-shadow: 
+      0 25px 50px -12px rgba(0, 0, 0, 0.5),
+      0 0 0 0.5px rgba(255, 255, 255, 0.05),
+      inset 0 0.5px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .avatarSection {
+    border-width: 2px;
+  }
+
+  .input {
+    border-width: 1px;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .profileCard,
+  .avatarSection,
+  .avatar,
+  .avatarOverlay,
+  .editButton,
+  .saveButton,
+  .cancelButton,
+  .addPostButton,
+  .addP,
+  .input {
+    transition: none;
+  }
+
+  .profileCard:hover,
+  .avatarSection:hover,
+  .avatar:hover,
+  .avatarOverlay:hover,
+  .editButton:hover,
+  .saveButton:hover,
+  .cancelButton:hover,
+  .addPostButton:hover,
+  .addP:hover {
+    transform: none;
+  }
+
+  .addPostButton::before,
+  .addP::before {
+    display: none;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .profileContainer {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
+  }
+
+  .profileCard {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .input {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .input:focus {
+    background: rgba(255, 255, 255, 0.05);
+  }
+}
