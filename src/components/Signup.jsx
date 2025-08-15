@@ -32,7 +32,7 @@ function Signup() {
 
   async function fetchData() {
     try {
-      let res = await axios.post("https://40cbf51fbb77.ngrok-free.app/signup", ucredentials);
+      let res = await axios.post("https://a5d791040f4b.ngrok-free.app/signup", ucredentials);
       console.log(res);
       if (res.data) {
         if (res.data.message == "User Already Exist") {

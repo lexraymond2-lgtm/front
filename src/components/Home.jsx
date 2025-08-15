@@ -53,12 +53,20 @@ function Home() {
   const fetchPosts = async () => {
     try {
       setIsLoading(true);
-      const response = await axios.get('https://40cbf51fbb77.ngrok-free.app/posts');
+      console.log('Fetching posts from:', 'https://a5d791040f4b.ngrok-free.app/posts');
+      const response = await axios.get('https://a5d791040f4b.ngrok-free.app/posts');
+      console.log('Posts response:', response);
       const postsData = response.data.posts || response.data;
       setPosts(postsData);
       setFilteredPosts(postsData);
     } catch (err) {
       console.error('Error fetching posts:', err);
+      console.error('Error details:', {
+        message: err.message,
+        status: err.response?.status,
+        statusText: err.response?.statusText,
+        data: err.response?.data
+      });
       setPosts([]);
       setFilteredPosts([]);
     } finally {
@@ -226,7 +234,7 @@ function Home() {
                     <div className={styles.imagediv}>
                       {post.userimage ? (
                         <img
-                          src={`https://40cbf51fbb77.ngrok-free.app/profileimages/${post.userimage}`}
+                          src={`https://a5d791040f4b.ngrok-free.app/profileimages/${post.userimage}`}
                           alt={post.username || 'User'}
                           className={styles.userProfileImage}
                           onError={(e) => {
@@ -262,7 +270,7 @@ function Home() {
                       {post.media_url ? (
                         post.media_type === 'video' ? (
                           <video
-                            src={`https://40cbf51fbb77.ngrok-free.app${post.media_url}`}
+                            src={`https://a5d791040f4b.ngrok-free.app${post.media_url}`}
 
                             controls
                             style={{ pointerEvents: 'none' }}
@@ -270,7 +278,7 @@ function Home() {
                           />
                         ) : (
                           <img
-                            src={`https://40cbf51fbb77.ngrok-free.app${post.media_url}`}
+                            src={`https://a5d791040f4b.ngrok-free.app${post.media_url}`}
                             alt={post.title}
                             className={styles.postMedia}
                             onError={(e) => {
@@ -400,13 +408,13 @@ function Home() {
                       <div className={styles.shareMediaPreview}>
                         {selectedPostForShare.media_type === 'video' ? (
                           <video
-                            src={`https://40cbf51fbb77.ngrok-free.app${selectedPostForShare.media_url}`}
+                            src={`https://a5d791040f4b.ngrok-free.app${selectedPostForShare.media_url}`}
                             controls
                             style={{ maxWidth: '200px', maxHeight: '150px' }}
                           />
                         ) : (
                           <img
-                            src={`https://40cbf51fbb77.ngrok-free.app${selectedPostForShare.media_url}`}
+                            src={`https://a5d791040f4b.ngrok-free.app${selectedPostForShare.media_url}`}
                             alt={selectedPostForShare.title}
                             style={{ maxWidth: '200px', maxHeight: '150px' }}
                           />

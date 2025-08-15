@@ -116,7 +116,7 @@ function Profile() {
         }
       };
 
-      const res = await axios.post("https://40cbf51fbb77.ngrok-free.app/profile", data, config);
+      const res = await axios.post("https://a5d791040f4b.ngrok-free.app/profile", data, config);
 
       if (res.status === 200) {
         console.log("Profile updated successfully:", res.data);
@@ -221,7 +221,7 @@ function Profile() {
                     ? URL.createObjectURL(editData.avatar)
                     : editData.avatar.startsWith('http') 
                       ? editData.avatar 
-                      : `https://40cbf51fbb77.ngrok-free.app/uploads/${editData.avatar}`
+                      : `https://a5d791040f4b.ngrok-free.app/uploads/${editData.avatar}`
                 }
                 alt={`${editData.username}'s profile`}
                 className={styles.avatar}
