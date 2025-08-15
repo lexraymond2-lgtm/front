@@ -25,7 +25,7 @@ function Login() {
 
   async function fetchData() {
     try {
-      let res = await axios.post("http://localhost:3000/login", ucredentials);
+      let res = await axios.post("https://40cbf51fbb77.ngrok-free.app/login", ucredentials);
 
       if (res.status === 200) {
         if (res.data.message === "User logged in successfully") {

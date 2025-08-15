@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "push-deploy": "git add . && git commit -m 'update' && git push && npm run deploy"
+    "pushh": "git add . && git commit -m 'update' && git push && npm run deploy"
   },
   "dependencies": {
     "@react-three/fiber": "^9.2.0",

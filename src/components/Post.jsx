@@ -68,7 +68,7 @@ function Post() {
     const fetchPosts = async () => {
         try {
             setIsLoading(true);
-            const response = await axios.get('http://localhost:3000/posts');
+            const response = await axios.get('https://40cbf51fbb77.ngrok-free.app/posts');
             // Handle both response formats: { posts: [...] } or [...]
             const postsData = response.data.posts || response.data;
             setPosts(postsData);
@@ -141,7 +141,7 @@ function Post() {
                 setDeletingPostId(postId);
                 
                 // Call backend API to delete the post
-                await axios.delete(`http://localhost:3000/posts/${postId}`, {
+                await axios.delete(`https://40cbf51fbb77.ngrok-free.app/posts/${postId}`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -227,7 +227,7 @@ function Post() {
 
             if (selectedPost) {
                 // Edit existing post
-                const res = await axios.put(`http://localhost:3000/posts/${selectedPost.postid}`, fd, {
+                const res = await axios.put(`https://40cbf51fbb77.ngrok-free.app/posts/${selectedPost.postid}`, fd, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                         'Content-Type': 'multipart/form-data',
@@ -238,7 +238,7 @@ function Post() {
                 await fetchPosts();
             } else {
                 // Create new post
-                const res = await axios.post('http://localhost:3000/posts', fd, {
+                const res = await axios.post('https://40cbf51fbb77.ngrok-free.app/posts', fd, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                         'Content-Type': 'multipart/form-data',
@@ -388,14 +388,14 @@ function Post() {
                                     {postItem.media_url ? (
                                         postItem.media_type === 'video' ? (
                                             <video 
-                                                src={`http://localhost:3000${postItem.media_url}`} 
+                                                src={`https://40cbf51fbb77.ngrok-free.app${postItem.media_url}`} 
                                                 
                                                 controls
                                                 className={styles.postMedia}
                                             />
                                         ) : (
                                             <img 
-                                                src={`http://localhost:3000${postItem.media_url}`} 
+                                                src={`https://40cbf51fbb77.ngrok-free.app${postItem.media_url}`} 
                                                 alt={postItem.title}
                                                 className={styles.postMedia}
                                                 onError={(e) => {
@@ -570,13 +570,13 @@ function Post() {
                                         <h4>Current Media:</h4>
                                         {formData.existingMediaType === 'video' ? (
                                             <video 
-                                                src={`http://localhost:3000${formData.existingMediaUrl}`}
+                                                src={`https://40cbf51fbb77.ngrok-free.app${formData.existingMediaUrl}`}
                                                 controls
                                                 style={{ maxWidth: '200px', maxHeight: '150px' }}
                                             />
                                         ) : (
                                             <img 
-                                                src={`http://localhost:3000${formData.existingMediaUrl}`}
+                                                src={`https://40cbf51fbb77.ngrok-free.app${formData.existingMediaUrl}`}
                                                 alt="Current media"
                                                 style={{ maxWidth: '200px', maxHeight: '150px' }}
                                             />
