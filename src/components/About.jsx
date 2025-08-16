@@ -5,7 +5,7 @@ import Sidebarr from './Sidebarr';
 import { useLocation } from 'react-router-dom';
 
 const About = () => {
-  const location = useLocation()
+  const location = useLocation();
 
   // Create menu items with active state based on current location
   const createMenuItems = () => {

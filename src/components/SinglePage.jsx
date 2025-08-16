@@ -46,7 +46,7 @@ function SinglePage({ postId, onClose, onUpdateLikes, onUpdateViews, onUpdateCom
     const fetchPost = async () => {
       try {
         setIsLoading(true);
-        const response = await axios.get(`https://40cbf51fbb77.ngrok-free.app/posts/${postId}`);
+        const response = await axios.get(`http://localhost:3000/posts/${postId}`);
         setPost(response.data.post);
         setLikeCount(response.data.post.likes || 0);
         setViewCount(response.data.post.shares || 0); // Use shares field for views
@@ -61,7 +61,7 @@ function SinglePage({ postId, onClose, onUpdateLikes, onUpdateViews, onUpdateCom
         const token = localStorage.getItem('token');
         if (token) {
           try {
-            const likeStatusResponse = await axios.get(`https://40cbf51fbb77.ngrok-free.app/posts/${postId}/like-status`, {
+            const likeStatusResponse = await axios.get(`http://localhost:3000/posts/${postId}/like-status`, {
               headers: {
                 Authorization: `Bearer ${token}`,
               },
@@ -87,7 +87,7 @@ function SinglePage({ postId, onClose, onUpdateLikes, onUpdateViews, onUpdateCom
 
   const fetchComments = async () => {
     try {
-      const response = await axios.get(`https://40cbf51fbb77.ngrok-free.app/posts/${postId}/comments`);
+      const response = await axios.get(`http://localhost:3000/posts/${postId}/comments`);
       const commentsData = response.data.comments || [];
       setComments(commentsData);
       // Update the parent component with the current comment count
@@ -105,7 +105,7 @@ function SinglePage({ postId, onClose, onUpdateLikes, onUpdateViews, onUpdateCom
 
   const trackView = async () => {
     try {
-      await axios.post(`https://40cbf51fbb77.ngrok-free.app/posts/${postId}/view`);
+      await axios.post(`http://localhost:3000/posts/${postId}/view`);
       // Update the view count locally
       setViewCount(prev => prev + 1);
       // Update the parent component
@@ -126,7 +126,7 @@ function SinglePage({ postId, onClose, onUpdateLikes, onUpdateViews, onUpdateCom
     }
 
     try {
-      const response = await axios.post(`https://40cbf51fbb77.ngrok-free.app/posts/${postId}/like`, {}, {
+      const response = await axios.post(`http://localhost:3000/posts/${postId}/like`, {}, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -177,7 +177,7 @@ function SinglePage({ postId, onClose, onUpdateLikes, onUpdateViews, onUpdateCom
 
     try {
       setIsCommenting(true);
-      const response = await axios.post(`https://40cbf51fbb77.ngrok-free.app/posts/${postId}/comments`, 
+      const response = await axios.post(`http://localhost:3000/posts/${postId}/comments`, 
         { comment_text: newComment.trim() },
         {
           headers: {
@@ -214,7 +214,7 @@ function SinglePage({ postId, onClose, onUpdateLikes, onUpdateViews, onUpdateCom
     }
 
     try {
-      await axios.delete(`https://40cbf51fbb77.ngrok-free.app/comments/${commentId}`, {
+      await axios.delete(`http://localhost:3000/comments/${commentId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -328,7 +328,7 @@ function SinglePage({ postId, onClose, onUpdateLikes, onUpdateViews, onUpdateCom
             <div className={styles.authorImage}>
               {post.userimage ? (
                 <img 
-                  src={`https://40cbf51fbb77.ngrok-free.app/profileimages/${post.userimage}`} 
+                  src={`http://localhost:3000/profileimages/${post.userimage}`} 
                   alt={post.username || 'User'}
                   className={styles.userProfileImage}
                   onError={(e) => {
@@ -362,13 +362,13 @@ function SinglePage({ postId, onClose, onUpdateLikes, onUpdateViews, onUpdateCom
           {post.media_url ? (
             post.media_type === 'video' ? (
               <video 
-                src={`https://40cbf51fbb77.ngrok-free.app${post.media_url}`} 
+                src={`http://localhost:3000${post.media_url}`} 
                 controls
                 className={styles.mediaContent}
               />
             ) : (
               <img 
-                src={`https://40cbf51fbb77.ngrok-free.app${post.media_url}`} 
+                src={`http://localhost:3000${post.media_url}`} 
                 alt={post.title}
                 className={styles.mediaContent}
                 onError={(e) => {
@@ -448,7 +448,7 @@ function SinglePage({ postId, onClose, onUpdateLikes, onUpdateViews, onUpdateCom
                       <div className={styles.commentAuthorImage}>
                         {comment.userimage ? (
                           <img 
-                            src={`https://40cbf51fbb77.ngrok-free.app/profileimages/${comment.userimage}`} 
+                            src={`http://localhost:3000/profileimages/${comment.userimage}`} 
                             alt={comment.username || 'User'}
                             className={styles.commentUserImage}
                             onError={(e) => {
